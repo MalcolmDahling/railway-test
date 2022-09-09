@@ -6,16 +6,10 @@ const TestModel = require('../models/TestModel');
 
 router.get('/', async function(req, res, next) {
     
-
-    try {
-        let test = await TestModel.findOne({id:0});
-        res.send(test.id);
-    }
+    let test = await TestModel.findOne({id:0});
     
-    catch (err) {
-        console.log(err);
-    }
-  
+    res.send(test);
+
 });
 
 module.exports = router;
