@@ -1,14 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const TestModel = require('../models/TestModel');
 
 
-router.get('/', async function(req, res, next) {
+
+router.get('/', async function(req, res) {
     
-    let test = await TestModel.findOne({id:0});
+    req.app.locals.db.collection('users').find().toArray()
+        .then(result => {
+            res.send(result);
+        });
+
     
-    res.send(test);
 
 });
 
