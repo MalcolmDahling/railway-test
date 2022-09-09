@@ -9,7 +9,7 @@ router.get('/', async function(req, res, next) {
 
     try {
         let test = await TestModel.findOne({id:0});
-        res.send(test);
+        res.send(test.id);
     }
     
     catch (err) {
